@@ -2,6 +2,8 @@
 
 A library to submit solutions to AtCoder contests in `Rust`.
 
+## Usage
+
 - Copy `.env.example` to `.env`:
 
 ```bash
