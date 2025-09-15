@@ -27,6 +27,8 @@ docker build -t atcoder .
 docker run -it --rm --name atcoder atcoder
 ```
 
+---
+
 - If you want to update `REVEL_SESSION` in container, update it in `.env` file and run:
 
 ```bash
