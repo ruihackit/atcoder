@@ -4,6 +4,13 @@ A library to submit solutions to AtCoder contests in `Rust`.
 
 ## Usage
 
+- Clone this repository:
+
+```bash
+git clone --recursive https://github.com/ruihackit/atcoder-rust.git
+cd atcoder-rust
+```
+
 - Copy `.env.example` to `.env`:
 
 ```bash
