@@ -1,5 +1,19 @@
-## References
+```bash
+cp .env{.example,}
+```
 
-### 環境構築
+- Set your AtCoder session value to `REVEL_SESSION` in `.env` file.
+  You can get it from browser developer tools.
 
-- [（付録（仮））WSLのUbuntuにatcoder-cliとojを準備する](https://zenn.dev/ok_xmonad/articles/ae1c5bf0a955c1)
+```bash
+docker build -t atcoder .
+docker run -it --rm --name atcoder atcoder
+```
+
+- Run the following command to update `REVEL_SESSION` in config files.
+
+- If you want to update `REVEL_SESSION`, update it in `.env` file and run:
+
+```bash
+./sh/update_revel_session.sh
+```
