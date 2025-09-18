@@ -1,6 +1,0 @@
-{
-    "task":{
-        "program": ["Main.hs"],
-        "submit": "Main.hs",
-    }
-}

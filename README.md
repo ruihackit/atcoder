@@ -23,8 +23,19 @@ cp .env{.example,}
 - Build and run the Docker container:
 
 ```bash
-docker build -t atcoder .
-docker run -it --rm --name atcoder atcoder
+docker build -t atcoder-rust .
+docker run -it --rm --name atcoder-rust atcoder-rust bash
+```
+
+- If you have `tmux` installed, you can run the container in a new `tmux` session:
+
+```bash
+tmux new-session -s atcoder-rust -d 'docker run -it --rm --name atcoder-rust atcoder-rust bash'
+```
+
+```bash
+# In container
+cd /workdir && code -r .
 ```
 
 ---
@@ -34,3 +45,7 @@ docker run -it --rm --name atcoder atcoder
 ```bash
 ./sh/update_revel_session.sh
 ```
+
+## References
+
+- [AtCoder でエディタからテストと提出が出来るまで](https://zenn.dev/tooyya/articles/b22a84994e131e)

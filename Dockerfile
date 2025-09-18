@@ -20,29 +20,34 @@ COPY . /workdir
 # Install packages
 RUN apt update && apt upgrade -y && \
     apt install -y \
-        time \
-        tzdata \
-        tree \
-        git \
-        curl \
-        build-essential \
-        python3.11 \
-        pipx \
-        && apt autoremove -y \
-        && apt clean \
-        && rm -rf /var/lib/apt/lists/* \
-        # Install atcoder-cli
-        && npm install -g atcoder-cli \
-        && acc config default-task-choice all \
-        # Install online-judge-tools
-        && pipx install online-judge-tools \
-        # Copy config/acc
-        && mkdir -p /root/.config/atcoder-cli-nodejs/ \
-        && cp -rf /workdir/config/acc/* /root/.config/atcoder-cli-nodejs/ \
-        && acc config default-test-dirname-format test \
-        && acc config default-template rust \
-        # Copy config/oj
-        && mkdir -p /root/.local/share/online-judge-tools/ \
-        && cp -rf /workdir/config/oj/* /root/.local/share/online-judge-tools/ \
-        # Set AtCoder Session (instead of `acc/oj login`)
-        && ./sh/update_revel_session.sh
+    time \
+    tzdata \
+    tree \
+    git \
+    curl \
+    build-essential \
+    python3.11 \
+    pipx \
+    && apt autoremove -y \
+    && apt clean \
+    && rm -rf /var/lib/apt/lists/* \
+    # Copy config/acc
+    && mkdir -p /root/.config/atcoder-cli-nodejs/ \
+    && cp -rf /workdir/config/acc/* /root/.config/atcoder-cli-nodejs/ \
+    # Copy config/oj
+    && mkdir -p /root/.local/share/online-judge-tools/ \
+    && cp -rf /workdir/config/oj/* /root/.local/share/online-judge-tools/ \
+    # Install atcoder-cli
+    && npm install -g atcoder-cli \
+    && acc config default-template rust_template \
+    && acc config default-task-dirname-format "./" \
+    && acc config default-task-choice all \
+    # Install online-judge-tools
+    && pipx install online-judge-tools \
+    # Clean up workdir/config
+    && rm -rf /workdir/config \
+    # Set AtCoder Session (instead of `acc/oj login`)
+    && ./sh/update_revel_session.sh \
+    # Install Rust
+    && curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh -s -- -y \
+    && . "$HOME/.cargo/env"

@@ -1,0 +1,10 @@
+{
+  "contest": {
+    "cmd": "cargo init . && cargo add proconio && rm src/main.rs"
+  },
+  "task": {
+    "program": [["main.rs", "src/bin/{tasklabel}.rs"]],
+    "submit": "src/bin/{tasklabel}.rs",
+    "testdir": "testcases/{tasklabel}"
+  }
+}
