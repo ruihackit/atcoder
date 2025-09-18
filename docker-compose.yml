@@ -1,0 +1,12 @@
+version: "3"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/workdir
+    working_dir: /workdir
+    command: bash
+    tty: true
+    stdin_open: true

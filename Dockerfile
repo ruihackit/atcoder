@@ -44,8 +44,6 @@ RUN apt update && apt upgrade -y && \
     && acc config default-task-choice all \
     # Install online-judge-tools
     && pipx install online-judge-tools \
-    # Clean up workdir/config
-    && rm -rf /workdir/config \
     # Set AtCoder Session (instead of `acc/oj login`)
     && ./sh/update_revel_session.sh \
     # Install Rust

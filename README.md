@@ -23,19 +23,33 @@ cp .env{.example,}
 - Build and run the Docker container:
 
 ```bash
-docker build -t atcoder-rust .
-docker run -it --rm --name atcoder-rust atcoder-rust bash
+docker compose up -d
 ```
 
-- If you have `tmux` installed, you can run the container in a new `tmux` session:
+- Kill and remove the container (and its volumes) when you are done:
 
 ```bash
-tmux new-session -s atcoder-rust -d 'docker run -it --rm --name atcoder-rust atcoder-rust bash'
+docker compose down -v
 ```
 
+---
+
+### How to participate in contests
+
+- Create contest folder:
+
 ```bash
-# In container
-cd /workdir && code -r .
+cd contest
+acc new [contest-name]
+cd [container-name]
+```
+
+- Edit `[contest-folder]/src/bin/[task-name].rs` to solve the problem
+- Test your code:
+
+```bash
+# in /workdir/contest
+../../sh/test/sh src/bin/[task-name].rs
 ```
 
 ---
@@ -43,9 +57,10 @@ cd /workdir && code -r .
 - If you want to update `REVEL_SESSION` in container, update it in `.env` file and run:
 
 ```bash
+# in container /workdir
 ./sh/update_revel_session.sh
 ```
 
 ## References
 
-- [AtCoder でエディタからテストと提出が出来るまで](https://zenn.dev/tooyya/articles/b22a84994e131e)
+- [AtCoder でエディタからテストと提出が出来るまで](https://zennk.dev/tooyya/articles/b22a84994e131e)
