@@ -1,3 +1,4 @@
+# syntax=docker/dockerfile:1.4
 FROM node:24-bookworm-slim
 
 # Disable interactive mode
@@ -47,3 +48,5 @@ RUN apt update && apt upgrade -y && \
     # # Install Rust
     # && curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh -s -- -y \
     # && . "$HOME/.cargo/env"
+    # Set git safe directory
+    && git config --global --add safe.direrectory /workdir

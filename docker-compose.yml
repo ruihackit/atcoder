@@ -1,11 +1,13 @@
-version: "3"
 services:
   app:
     build:
       context: .
       dockerfile: Dockerfile
+    environment:
+      SSH_AUTH_SOCK: $SSH_AUTH_SOCK
     volumes:
       - ./:/workdir
+      - "$SSH_AUTH_SOCK:$SSH_AUTH_SOCK"
     working_dir: /workdir
     command: bash
     tty: true
