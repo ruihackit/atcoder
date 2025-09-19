@@ -1,14 +1,14 @@
-# atcoder-rust
+# atcoder-cpp
 
-A library to submit solutions to AtCoder contests in `Rust`.
+A library to submit solutions to AtCoder contests in `C++`.
 
 ## Usage
 
 - Clone this repository:
 
 ```bash
-git clone --recursive https://github.com/ruihackit/atcoder-rust.git
-cd atcoder-rust
+git clone --recursive https://github.com/ruihackit/atcoder-cpp.git
+cd atcoder-cpp
 ```
 
 - Copy `.env.example` to `.env`:
@@ -41,15 +41,30 @@ docker compose down -v
 ```bash
 cd contest
 acc new [contest-name]
-cd [container-name]
+cd [container-name]/[task-name]
 ```
 
 - Edit `[contest-folder]/src/bin/[task-name].rs` to solve the problem
+
+- Build your code:
+
+```bash
+# in /workdir/contest
+g++ main.cpp
+```
+
 - Test your code:
 
 ```bash
 # in /workdir/contest
-../../sh/test/sh src/bin/[task-name].rs
+oj t
+```
+
+- Submit your solution:
+
+```bash
+# in /workdir/contest
+acc s
 ```
 
 ---
@@ -58,7 +73,7 @@ cd [container-name]
 
 ```bash
 # in container /workdir
-./sh/update_revel_session.sh
+./sh/update_config.sh
 ```
 
 ## References

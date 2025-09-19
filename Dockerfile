@@ -39,13 +39,11 @@ RUN apt update && apt upgrade -y && \
     && cp -rf /workdir/config/oj/* /root/.local/share/online-judge-tools/ \
     # Install atcoder-cli
     && npm install -g atcoder-cli \
-    && acc config default-template rust_template \
-    && acc config default-task-dirname-format "./" \
-    && acc config default-task-choice all \
     # Install online-judge-tools
     && pipx install online-judge-tools \
     # Set AtCoder Session (instead of `acc/oj login`)
-    && ./sh/update_revel_session.sh \
-    # Install Rust
-    && curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh -s -- -y \
-    && . "$HOME/.cargo/env"
+    && ./sh/update_config.sh \
+    # Install C++
+    # # Install Rust
+    # && curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh -s -- -y \
+    # && . "$HOME/.cargo/env"

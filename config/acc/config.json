@@ -2,7 +2,7 @@
   "oj-path": "",
   "default-contest-dirname-format": "{ContestID}",
   "default-task-dirname-format": "{tasklabel}",
-  "default-test-dirname-format": "tests",
-  "default-task-choice": "inquire",
-  "default-template": ""
+  "default-test-dirname-format": "test",
+  "default-task-choice": "all",
+  "default-template": "cpp"
 }
